@@ -1,7 +1,5 @@
 @import '../../App';
 
-// $fill-color: rgb(235, 223, 170);
-// $fill-color: rgb(235, 223, 170);
 $border-color: black;
 $border-radius: 6px;
 
@@ -45,10 +43,9 @@ $initial-saturation: 1;
 }
 
 .Out {
-    background-color: $fill-color;
+    // background-color: $fill-color;
     filter: saturate(#{$initial-saturation});
     border-radius: $border-radius;
-    background-color: $fill-color;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,8 +55,8 @@ $initial-saturation: 1;
 
 .inner {
     font-family: "bd-eject";
-    color: $fill-color;
-    filter: saturate(#{$initial-saturation}) hue-rotate(270deg) saturate(8) contrast(150%) brightness(88%);
+    // color: $fill-color;
+    // color: rgb(113, 161, 224); // filter: saturate(#{$initial-saturation}) hue-rotate(270deg) saturate(8) contrast(150%) brightness(88%);
 
     font-size: 1em;
 

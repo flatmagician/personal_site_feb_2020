@@ -13,7 +13,7 @@ export default function Out(props) {
             onMouseUp={mouseUpHandler}
             style={{ 'width': props.width, 'height': props.height }}
         >
-            <div className="inner" style={props.filterOff ? { filter: "none" } : null}>
+            <div className="inner" style={props.filterOff ? { filter: "none", color: 'rgb(' + props.colors.textColor.toString() + ")" } : { color: 'rgb(' + props.colors.textColor.toString() + ")" }}>
                 {props.inner ?
                     props.inner
                     :

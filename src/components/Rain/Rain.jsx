@@ -17,10 +17,25 @@ export default class Rain extends Component {
             windowHeight: props.windowHeight,
             columns: 10,
             rows: 10,
-            direction: this.props.direction
+            direction: this.props.direction,
+            colors: {
+                gradientLight: [255, 174, 202],
+                gradientDark: [253, 185, 208],
+                textColor: [113, 161, 224]
+            }
         }
         this.draw = this.draw.bind(this)
         this.initDrops = this.initDrops.bind(this)
+    }
+
+    componentDidUpdate() {
+        if (this.props.colors && this.state.colors !== this.props.colors) {
+            console.log('COLORS')
+            console.log(this.props.colors)
+            this.setState({
+                colors: this.props.colors
+            })
+        }
     }
 
     componentDidMount() {
@@ -72,10 +87,14 @@ export default class Rain extends Component {
         if (this.props.windowWidth !== this.state.windowWidth || this.props.direction !== this.state.direction) {
             this.initDrops()
         }
-        this.ctx.fillStyle = "rgba(254, 175, 202, .175)";
+        // this.ctx.fillStyle = "linear-gradient(to top, rgb(253, 185, 208), rgb(255, 174, 202)";
+        let gradient = this.ctx.createLinearGradient(0, 0, 0, 1 * this.props.windowHeight)
+        gradient.addColorStop(0, "rgba(" + this.state.colors.gradientLight.toString() + ", .18)")
+        gradient.addColorStop(1, "rgba(" + this.state.colors.gradientDark.toString() + ", .75)")
+        this.ctx.fillStyle = gradient
         this.ctx.fillRect(0, 0, this.state.windowWidth, this.state.windowHeight);
 
-        this.ctx.fillStyle = "rgb(113, 161, 224)";
+        this.ctx.fillStyle = "rgb(" + this.state.colors.textColor.toString() + ")";
         this.ctx.font = this.fontSize + "px bd-eject";
 
         let drops = JSON.parse(JSON.stringify(this.state.drops))

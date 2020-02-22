@@ -28,6 +28,7 @@ export default class Main extends Component {
 
                             </div>
                         }
+                        colors={this.props.colors}
                     />
                 </div>
                 <div className="buttonContainer">
@@ -37,6 +38,7 @@ export default class Main extends Component {
                         height="50px"
                         text={<h5><span className="bigChar">H</span>OME</h5>}
                         update={() => this.props.update('home')}
+                        colors={this.props.colors}
 
                     />
                     <Out
@@ -47,6 +49,7 @@ export default class Main extends Component {
                             <h5>PAGE</h5>
                         }
                         update={() => this.props.update('page2')}
+                        colors={this.props.colors}
                     />
                     <Out
                         active={true}
@@ -56,6 +59,7 @@ export default class Main extends Component {
                             <h5>PROJECTS</h5>
                         }
                         update={() => this.props.update('page3')}
+                        colors={this.props.colors}
                     />
                 </div>
             </div>

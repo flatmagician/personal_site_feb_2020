@@ -13,6 +13,7 @@ function RainWrapper(props) {
                 windowWidth={props.windowWidth}
                 windowHeight={props.windowHeight}
                 direction={props.direction}
+                colors={props.colors}
             />
     )
 }
