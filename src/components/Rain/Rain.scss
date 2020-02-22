@@ -1,0 +1,8 @@
+@import '../../components/Out/Out';
+
+.Rain {
+    mix-blend-mode: darken;
+    width: 100%;
+    height: 100%;
+    border-radius: $border-radius;
+}

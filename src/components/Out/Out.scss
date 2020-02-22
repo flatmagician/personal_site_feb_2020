@@ -1,0 +1,98 @@
+@import '../../App';
+
+// $fill-color: rgb(235, 223, 170);
+// $fill-color: rgb(235, 223, 170);
+$border-color: black;
+$border-radius: 6px;
+
+$shadow-depth: 3px;
+$shadow-blur: 4px;
+$shadow-opacity-dark: .075;
+$shadow-opacity-light: .15;
+$dark-shadow: rgba(0, 0, 0, calc(#{$shadow-opacity-dark}));
+$light-shadow: rgba(255, 255, 255, calc(#{$shadow-opacity-light}));
+
+$initial-saturation: 1;
+
+@font-face {
+    font-family: 'fcr';
+    src: url("../../fonts/FerriteCore-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'fcl';
+    src: url("../../fonts/FerriteCoreDX-Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'planet-kosmos';
+    src: url("../../fonts/PLANK___.TTF") format("truetype");
+}
+
+@font-face {
+    font-family: 'planet-tricolore';
+    src: url("../../fonts/PLANTC__.TTF") format("truetype");
+}
+
+@font-face {
+    font-family: '11-20';
+    src: url("../../fonts/11.20___.TTF") format("truetype");
+}
+
+@font-face {
+    font-family: 'bd-eject';
+    src: url("../../fonts/BDEject.ttf") format("truetype");
+}
+
+.Out {
+    background-color: $fill-color;
+    filter: saturate(#{$initial-saturation});
+    border-radius: $border-radius;
+    background-color: $fill-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: linear .1s;
+}
+
+.inner {
+    font-family: "bd-eject";
+    color: $fill-color;
+    filter: saturate(#{$initial-saturation}) hue-rotate(270deg) saturate(8) contrast(150%) brightness(88%);
+
+    font-size: 1em;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.unclicked {
+    box-shadow: $shadow-depth $shadow-depth $shadow-blur $dark-shadow,
+    calc(-1 * #{$shadow-depth}) calc(-1 * #{$shadow-depth}) $shadow-blur $light-shadow;
+}
+
+.clicked {
+    box-shadow: calc(.5 * #{$shadow-depth}) calc(.5 * #{$shadow-depth}) calc(.5 * #{$shadow-blur}) $dark-shadow,
+    calc(-.5 * #{$shadow-depth}) calc(-.5 * #{$shadow-depth}) calc(.5 * #{$shadow-blur}) $light-shadow;
+    // transition-delay: .1s
+}
+
+.text {
+    transition: linear .1s;
+}
+
+.unclickedText {
+    text-shadow: calc(1*#{$shadow-depth}) calc(1*#{$shadow-depth}) 2px $dark-shadow,
+    calc(-1 * #{$shadow-depth}) calc(-1 * #{$shadow-depth}) 2px $light-shadow;
+}
+
+.clickedText {
+    text-shadow: calc(.5*#{$shadow-depth}) calc(.5*#{$shadow-depth}) 2px $dark-shadow,
+    calc(-.5 * #{$shadow-depth}) calc(-.5 * #{$shadow-depth}) 2px $light-shadow;
+}
